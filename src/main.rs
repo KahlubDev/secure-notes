@@ -1,12 +1,8 @@
-mod database;
-mod handlers;
-mod models;
-mod routes;
-mod state;
-
 use axum::Router;
 use std::net::SocketAddr;
 use tracing_subscriber;
+
+use secure_notes::{database, routes, state};
 
 #[tokio::main]
 async fn main() {
