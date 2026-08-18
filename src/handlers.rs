@@ -55,17 +55,15 @@ pub async fn search_notes(
     State(state): State<AppState>,
     Query(query): Query<SearchQuery>,
 ) -> Result<Json<Vec<Note>>, StatusCode> {
-    let sql = format!(
+    let notes = sqlx::query_as::<_, (String, String, String, String)>(
     "SELECT id, title, content, created_at
      FROM notes
-     WHERE title = '{}'",
-    query.title
-);
-
-let notes = sqlx::query_as::<_, (String, String, String, String)>(&sql)
-    .fetch_all(&state.db)
-    .await
-    .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
+     WHERE title = ?",
+)
+.bind(&query.title)
+.fetch_all(&state.db)
+.await
+.map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
 
     let notes = notes
         .into_iter()
