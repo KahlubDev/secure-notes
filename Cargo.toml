@@ -1,6 +1,34 @@
 [package]
 name = "secure-notes"
-version = "0.1.0"
+version = "1.0.1"
 edition = "2024"
 
 [dependencies]
+axum = "0.8"
+tokio = { version = "1", features = ["full"] }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+sqlx = { version = "0.8", features = [
+    "sqlite",
+    "runtime-tokio-rustls",
+    "macros",
+    "migrate"
+] }
+
+validator = { version = "0.20", features = ["derive"] }
+
+tower-http = { version = "0.6", features = ["trace"] }
+tower = { version = "0.5", features = ["util"] }
+
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+uuid = { version = "1", features = ["v4", "serde"] }
+
+chrono = { version = "0.4", features = ["serde"] }
+
+thiserror = "2"
+
+urlencoding = "2"
