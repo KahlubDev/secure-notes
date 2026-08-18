@@ -1,6 +1,6 @@
 [package]
 name = "secure-notes"
-version = "0.1.0"
+version = "1.0.1"
 edition = "2024"
 
 [dependencies]
@@ -30,3 +30,5 @@ uuid = { version = "1", features = ["v4", "serde"] }
 chrono = { version = "0.4", features = ["serde"] }
 
 thiserror = "2"
+
+urlencoding = "2"
