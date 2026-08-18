@@ -13,4 +13,5 @@ pub fn router() -> Router<AppState> {
     Router::new()
         .route("/", get(health_check))
         .route("/notes", post(handlers::create_note))
+        .route("/notes/search", get(handlers::search_notes))
 }
