@@ -56,18 +56,8 @@ Commits in this repository intentionally show both a vulnerable search path and 
 Work in progress. Suitable for learning and demonstration of secure backend patterns in Rust.
 
 
----
 
-### 2. agripay  
-**Status:** Already has a strong README. Only light tightening recommended.
 
-You can leave the existing README as-is. If you want a slightly cleaner top section, replace the opening lines with:
 
-```markdown
-# AgriPay
 
-Loan cash today. Repay after harvest.
 
-A working MVP for smallholder farmers who need input financing before harvest. Farmers submit crop and harvest details; an explainable scoring engine produces a loan offer; approved funds are disbursed to M-Pesa via PayHero. Repayment is collected the same way with an STK Push at harvest time.
-
-**Stack:** React (Vite) · Express · PayHero · Node.js
